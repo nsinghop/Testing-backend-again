@@ -1,36 +1,42 @@
-// server.js
+// https://newsapi.org/v2/everything?q=technology&sortBy=publishedAt&apiKey=b58d7fe22dc2432d9e8be409f2b72912
+
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
+
 const PORT = process.env.PORT || 5000;
 
-let cachedData = null;
+let TechnologyNews = null;
 
-// Fetch function
-const fetchData = async () => {
+
+async function TechnologyFetch() {
   try {
-    const res = await axios.get('https://dummyjson.com/test');
-    cachedData = res.data;
-    console.log('Data updated:', new Date().toLocaleString());
-  } catch (err) {
-    console.error('Fetch failed:', err.message);
+    const response = await axios.get('https://newsapi.org/v2/everything?q=technology&sortBy=publishedAt&apiKey=b58d7fe22dc2432d9e8be409f2b72912');
+    TechnologyNews = response.data;
+    console.log("Data Updated", new Date().toLocaleString());
+  } catch (error) {
+    console.log("Error:", error.message);
   }
-};
+}
 
-// Fetch immediately and then every 3 hours
-fetchData();
-setInterval(fetchData, 3 * 60 * 60 * 1000); // 3 hours in ms
+TechnologyFetch();
+setInterval(TechnologyFetch, 1000 * 3600*3); 
 
-// API route
-app.get('/api/data', (req, res) => {
-  if (cachedData) {
-    res.json(cachedData);
+
+app.get('/api/Technology', (req, res) => {
+  if (TechnologyNews) {
+    res.json(TechnologyNews);
   } else {
-    res.status(503).json({ error: 'Data not available yet' });
+    res.status(503).json({ error: "Unable to fetch data" });
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.get('/', (req, res) => {
+  res.send('Welcome to my backend!');
+});
+
+app.listen(PORT, () => console.log(`Server Running at ${PORT}`));
