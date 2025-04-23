@@ -60,7 +60,7 @@ async function fetchCryptoNews() {
 }
 
 fetchCryptoNews()
-setInterval(fetchCryptoNews, 1000*3600*3)
+setInterval(fetchCryptoNews, 1000*3600*23)
 
 app.get('/api/crypto',(req,res)=>{
   if (cryptoNews){
@@ -86,7 +86,7 @@ async function fetchStartupNews() {
 }
 
 fetchStartupNews()
-setInterval(fetchStartupNews, 1000*3600*3)
+setInterval(fetchStartupNews, 1000*3600*23)
 
 app.get('/api/startup',(req,res)=>{
   if (startupNews){
@@ -113,7 +113,7 @@ async function fetchTechStartupNews() {
 }
 
 fetchTechStartupNews()
-setInterval(fetchTechStartupNews, 1000*3600*3)
+setInterval(fetchTechStartupNews, 1000*3600*23)
 
 app.get('/api/techstartup',(req,res)=>{
   if (techStartups){
@@ -139,7 +139,7 @@ async function fetchAINews() {
 }
 
 fetchAINews()
-setInterval(fetchAINews, 1000*3600*3)
+setInterval(fetchAINews, 1000*3600*23)
 
 app.get('/api/ainews',(req,res)=>{
   if (aiNews){
@@ -167,7 +167,7 @@ async function fetchInTechNews() {
 }
 
 fetchInTechNews()
-setInterval(fetchInTechNews, 1000*3600*3)
+setInterval(fetchInTechNews, 1000*3600*23)
 
 app.get('/api/ainews',(req,res)=>{
   if (inTechNews){
@@ -196,7 +196,7 @@ async function fetchBusinessNews() {
 }
 
 fetchBusinessNews()
-setInterval(fetchBusinessNews, 1000*3600*3)
+setInterval(fetchBusinessNews, 1000*3600*23)
 
 app.get('/api/ainews',(req,res)=>{
   if (businessNews){
