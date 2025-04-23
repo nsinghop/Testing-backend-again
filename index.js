@@ -53,14 +53,14 @@ let cryptoNews = null;
 async function fetchCryptoNews() {
   try {
     let response = axios.get("https://newsapi.org/v2/everything?q=crypto&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
-    cryptoNews = response.data()
+    cryptoNews = response.data
   } catch (error) {
     console.log("Error fetchCryptoNews:", error.message)
   }
 }
 
 fetchCryptoNews()
-setInterval(fetchCryptoNews, 1000*3600*23)
+setInterval(fetchCryptoNews, 1000*3600*3)
 
 app.get('/api/crypto',(req,res)=>{
   if (cryptoNews){
@@ -79,14 +79,14 @@ let startupNews = null;
 async function fetchStartupNews() {
   try {
     let response = axios.get("https://newsapi.org/v2/everything?q=startup+startups&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
-    startupNews = response.data()
+    startupNews = response.data
   } catch (error) {
     console.log("Error fetchStartupNess:", error.message)
   }
 }
 
 fetchStartupNews()
-setInterval(fetchStartupNews, 1000*3600*23)
+setInterval(fetchStartupNews, 1000*3600*3)
 
 app.get('/api/startup',(req,res)=>{
   if (startupNews){
@@ -106,14 +106,14 @@ let techStartups = null;
 async function fetchTechStartupNews() {
   try {
     let response = axios.get("https://newsapi.org/v2/everything?q=tech+startup&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
-    techStartups = response.data()
+    techStartups = response.data
   } catch (error) {
     console.log("Error fetchStartupNess:", error.message)
   }
 }
 
 fetchTechStartupNews()
-setInterval(fetchTechStartupNews, 1000*3600*23)
+setInterval(fetchTechStartupNews, 1000*3600*3)
 
 app.get('/api/techstartup',(req,res)=>{
   if (techStartups){
@@ -132,14 +132,14 @@ let aiNews = null;
 async function fetchAINews() {
   try {
     let response = axios.get("https://newsapi.org/v2/everything?q=AI&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
-    aiNews = response.data()
+    aiNews = response.data
   } catch (error) {
     console.log("Error fetchAINews:", error.message)
   }
 }
 
 fetchAINews()
-setInterval(fetchAINews, 1000*3600*23)
+setInterval(fetchAINews, 1000*3600*3)
 
 app.get('/api/ainews',(req,res)=>{
   if (aiNews){
@@ -160,14 +160,14 @@ let inTechNews = null;
 async function fetchInTechNews() {
   try {
     let response = axios.get("https://newsapi.org/v2/everything?q=tech+india&language=en&sortBy=publishedA&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
-    inTechNews = response.data()
+    inTechNews = response.data
   } catch (error) {
     console.log("Error fetchAINews:", error.message)
   }
 }
 
 fetchInTechNews()
-setInterval(fetchInTechNews, 1000*3600*23)
+setInterval(fetchInTechNews, 1000*3600*3)
 
 app.get('/api/ainews',(req,res)=>{
   if (inTechNews){
@@ -189,14 +189,14 @@ let businessNews = null;
 async function fetchBusinessNews() {
   try {
     let response = axios.get("https://newsapi.org/v2/top-headlines?category=business&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
-    businessNews = response.data()
+    businessNews = response.data
   } catch (error) {
     console.log("Error fetchAINews:", error.message)
   }
 }
 
 fetchBusinessNews()
-setInterval(fetchBusinessNews, 1000*3600*23)
+setInterval(fetchBusinessNews, 1000*3600*3)
 
 app.get('/api/ainews',(req,res)=>{
   if (businessNews){
